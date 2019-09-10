@@ -37,6 +37,7 @@ There are couple ways to develop ESP32 but Arduino based project is easier to st
 - Create a new project and save somewhere
 - Replace all the code in the sketch with the code below
 - Compile and download it 
+- Try other examples in the docs
 
 ```
 void setup() {
