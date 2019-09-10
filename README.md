@@ -2,7 +2,7 @@
 
 A collection of [ESP32-Feather](https://learn.adafruit.com/adafruit-huzzah32-esp32-feather) based projects.
 
-## 1. How to start
+## 1. How to start with Arduino IDE
 
 There are couple ways to develop ESP32 but Arduino based project is easier to start.
 
@@ -13,7 +13,7 @@ There are couple ways to develop ESP32 but Arduino based project is easier to st
 - [Arduino IDE + ESP32 (1)](https://github.com/espressif/arduino-esp32)
 - [Arduino IDE + ESP32 (2)](https://github.com/espressif/arduino-esp32/blob/master/docs/arduino-ide/boards_manager.md)
 
-### 1.2 Steps
+### 1.2 Setup for Arduino IDE
 
 - Install python3.7, python2.7, and pyserial (sudo -H pip3 install pyserial) 
 - Download [the Arduino IDE](https://www.arduino.cc/en/main/software) (v1.8 or higher)
@@ -22,30 +22,41 @@ There are couple ways to develop ESP32 but Arduino based project is easier to st
 - Get ESP32 board manager from **Tools > Board: XXX > Board Manager** (Search ESP32 and install it)
 - Set Board type from **Tools > Board: Adafruits ESP32 Feather**
 - Set USB port from **Tools > Port: xxx**
-- Connect an ESP32 feather board
+- Connect an ESP32 feather board to a USB port
 - Get the board's info from **Tools > Get Board Info**
+- Etc.
+    - Upload Speed: 921600
+    - Flash Freq.: 80MHz
+    - Programmer: AVR ISP or AVR ISP mkII are good.
 
-## 2. How to develop
+### 1.3. How to develop
 
-### 2.1 Links
-
+Please check these links:
 - [API doc](https://docs.espressif.com/projects/esp-idf/en/latest/)
 - [Get started](https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html)
 - [Espressif IoT Development Framework](https://github.com/espressif/esp-idf)
 
-### 2.2 Steps
-
+Please follow to compile and flash
 - Create a new project and save somewhere
 - Replace all the code in the sketch with the code below
 - Compile and download it 
-- Try other examples in the docs
+- Try other examples in **File > Examples > ESP32**
 
 ```
+const int PIN21 = 21;
+
 void setup() {
-  // put your setup code here, to run once:
+  pinMode(PIN21, OUTPUT);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  delay(1000);
+  digitalWrite(PIN21, HIGH);
+  delay(1000);
+  digitalWrite(PIN21, LOW);
 }
 ```
+
+## 2. How to start with other advanced tools
+
+It is about idf.py, VSCODE, and GDB but for now WIP.
